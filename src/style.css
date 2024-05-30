@@ -4,49 +4,30 @@
   box-sizing: border-box;
 }
 
+:root {
+  --portfolio-bg: rgba(15, 23, 42, 1);
+  --bg-opacity: 1;
+}
+
 body {
-  background-color: lightgray;
+  background-color: var(--portfolio-bg);
+  opacity: var(--bg-opacity);
 }
 
 /* #region Layout */
-.container {
-  width: 70%;
-  max-width: 1176px;
-  margin: 0 auto;
 
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -1rem;
-
-    .col {
-      width: 100%;
-      padding: 1rem;
-
-      @media (min-width:600px) {
-        width: 50%;
-      }
-
-      @media (min-width:993px) {
-        width: calc(100% / 12 * 3);
-      }
-    }
-  }
+.frame {
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 
-.card {
-  background-color: #fff;
-
-  .card-body {
-    padding: 0.5rem;
-
-  }
+.site-left,
+.site-right {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
-img {
-  max-width: 100%;
-}
-
-ul {
-  list-style: none;
+.site-left {
+  position: fixed;
+  max-width: 500px;
 }
