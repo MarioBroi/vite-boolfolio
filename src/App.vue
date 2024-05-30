@@ -13,6 +13,16 @@ export default {
     }
   },
   methods: {
+    nextPage(url) {
+      this.callApi(url)
+    },
+    prevPage(url) {
+      this.callApi(url)
+    },
+    goTo(page) {
+      const url = this.base_api_url + this.base_projects_url + `?page=${page}`
+      this.callApi(url)
+    },
     callApi(url) {
       axios
         .get(url)
@@ -123,7 +133,7 @@ export default {
 
             <div class="projects pt-5" id="proj">
               <h3 class="text-center pb-2">My projects</h3>
-              <div class="row row-cols-3 g-3">
+              <div class="row row-cols-3 g-3" v-if="!loading">
                 <div class="col" v-for="project in projects.data">
                   <div class="card">
                     <div class="card-top">
@@ -163,11 +173,39 @@ export default {
                   <!-- /.card -->
                 </div>
                 <!-- /.col -->
+                <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                    <li class="page-item" v-show="projects.prev_page_url" @click="prevPage(projects.prev_page_url)">
+                      <button class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </button>
+                    </li>
 
+                    <li v-for="page in   projects.last_page  " class="page-item"
+                      :class="{ 'active': page == projects.current_page }" @click="goTo(page)">
+                      <button class="page-link">{{ page }}</button>
+                    </li>
+
+                    <li class="page-item" v-show="projects.next_page_url" @click="nextPage(projects.next_page_url)">
+                      <button class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+
+              </div>
+              <!-- /.row -->
+              <div class="row" v-else>
+                <div class="col">
+                  Loading ...
+                </div>
+                <!-- /.col -->
               </div>
               <!-- /.row -->
             </div>
             <!-- /.projects -->
+
             <div class="education pt-5" id="edu">
               <h3>Education</h3>
               <p>
