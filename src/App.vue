@@ -46,8 +46,13 @@ export default {
       <div class="row">
         <div class="col" v-for="project in projects.data">
           <div class="card">
-            <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img" alt="Title"
-              width="250px" />
+            <template v-if="project.project_img.startsWith('uploads')">
+              <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img"
+                alt="Title of {{ project.title }}" width="275px" />
+            </template>
+            <template v-else>
+              <img class="card-img-top" :src="project.project_img" alt="Title of {{ project.title }}" width="274px" />
+            </template>
             <div class="card-body">
               <h4 class="card-title">{{ project.title }}</h4>
               <p class="card-text">Description: {{ project.description }}</p>
