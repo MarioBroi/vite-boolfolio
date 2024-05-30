@@ -35,9 +35,40 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h1>hello</h1>
-  </div>
+
+  <header class="site-header">
+    <h1>Header</h1>
+  </header>
+  <!-- /.site-header -->
+
+  <main class="site-main">
+    <div class="container">
+      <div class="row">
+        <div class="col" v-for="project in projects.data">
+          <div class="card">
+            <img class="card-img-top" src="" alt="Title" />
+            <div class="card-body">
+              <h4 class="card-title">{{ project.title }}</h4>
+              <p class="card-text">Description: {{ project.description }}</p>
+              <p class="card-text">Type: {{ project.type }}</p>
+              <p class="card-text">Technologies: {{ project.technologies }}</p>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </main>
+  <!-- /.site-main -->
+
+  <footer class="site-footer">
+    <h1>Footer</h1>
+  </footer>
+  <!-- /.site-footer -->
 </template>
 
 <style></style>
