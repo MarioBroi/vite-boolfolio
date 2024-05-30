@@ -50,22 +50,22 @@ export default {
               </p>
               <ul class="list-unstyled text-light">
                 <li>
-                  <a href="" class="text-light text-decoration-none fs-4">
+                  <a href="#about" class="text-light text-decoration-none fs-4">
                     About
                   </a>
                 </li>
                 <li class="pt-3">
-                  <a href="" class="text-light text-decoration-none fs-4">
+                  <a href="#tech" class="text-light text-decoration-none fs-4">
                     Technical skills
                   </a>
                 </li>
                 <li class="pt-3">
-                  <a href="" class="text-light text-decoration-none fs-4">
+                  <a href="#proj" class="text-light text-decoration-none fs-4">
                     Projects
                   </a>
                 </li>
                 <li class="pt-3">
-                  <a href="" class="text-light text-decoration-none fs-4">
+                  <a href="#edu" class="text-light text-decoration-none fs-4">
                     Education
                   </a>
                 </li>
@@ -94,7 +94,7 @@ export default {
         <!-- /.col -->
         <div class="col">
           <section class="site-right text-light">
-            <div class="about-me">
+            <div class="about-me" id="about">
               <h3>About me</h3>
               <p>After seven years of working in restaurants across Italy and London, I decided to make a
                 significant career change by pursuing a passion for programming and web development. I
@@ -104,7 +104,7 @@ export default {
             </div>
             <!-- /.about-me -->
 
-            <div class="technical-skills pt-5">
+            <div class="technical-skills pt-5" id="tech">
               <h3>Technical skills</h3>
               <ul class="list-unstyled">
                 <li>
@@ -121,7 +121,7 @@ export default {
             </div>
             <!-- /.technical-skills -->
 
-            <div class="projects pt-5">
+            <div class="projects pt-5" id="proj">
               <h3 class="text-center pb-2">My projects</h3>
               <div class="row row-cols-3 g-3">
                 <div class="col" v-for="project in projects.data">
@@ -146,7 +146,7 @@ export default {
                         </p>
                       </div>
                       <p class="card-text"><strong>Technologies:</strong></p>
-                      <ul v-for="technology in project.technologies">
+                      <ul class="list-unstyled" v-for="technology in project.technologies">
                         <li class="card-text">
                           {{ technology.name }}
                         </li>
@@ -163,11 +163,12 @@ export default {
                   <!-- /.card -->
                 </div>
                 <!-- /.col -->
+
               </div>
               <!-- /.row -->
             </div>
             <!-- /.projects -->
-            <div class="education pt-5">
+            <div class="education pt-5" id="edu">
               <h3>Education</h3>
               <p>
                 Currently enrolled in the Boolean online course, specializing in web development
