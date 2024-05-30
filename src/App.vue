@@ -46,19 +46,21 @@ export default {
       <div class="row">
         <div class="col" v-for="project in projects.data">
           <div class="card">
-            <template v-if="project.project_img.startsWith('uploads')">
-              <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img"
-                alt="Title of {{ project.title }}" />
-            </template>
-            <template v-else>
-              <img class="card-img-top" :src="project.project_img" alt="Title of {{ project.title }}" width="274px" />
-            </template>
+            <div class="card-top">
+              <template v-if="project.project_img.startsWith('uploads')">
+                <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img"
+                  alt="Title of {{ project.title }}" />
+              </template>
+              <template v-else>
+                <img class="card-img-top" :src="project.project_img" alt="Title of {{ project.title }}" width="274px" />
+              </template>
+            </div>
+            <!-- /.card-top -->
             <div class="card-body">
               <h4 class="card-title">{{ project.title }}</h4>
-              <p class="card-text"> <strong>Description: </strong>{{ project.description }}</p>
+              <p class="card-text"><strong>Description: </strong>{{ project.description }}</p>
               <div v-if="project.type">
-                <p class="card-text">
-                  <strong>Type: </strong>{{ project.type.name }}
+                <p class="card-text"><strong>Type: </strong>{{ project.type.name }}
                 </p>
               </div>
               <p class="card-text"><strong>Technologies:</strong></p>
@@ -67,6 +69,12 @@ export default {
                   {{ technology.name }}
                 </li>
               </ul>
+              <p class="card-text"><strong>Link: </strong>
+                <a :href="project.project_link">{{ project.project_link }}</a>
+              </p>
+              <p class="card-text"><strong>GitHub: </strong>
+                <a :href="project.project_github">{{ project.project_github }}</a>
+              </p>
             </div>
             <!-- /.card-body -->
           </div>
