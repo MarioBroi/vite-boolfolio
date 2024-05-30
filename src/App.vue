@@ -46,11 +46,12 @@ export default {
       <div class="row">
         <div class="col" v-for="project in projects.data">
           <div class="card">
-            <img class="card-img-top" src="" alt="Title" />
+            <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img" alt="Title"
+              width="250px" />
             <div class="card-body">
               <h4 class="card-title">{{ project.title }}</h4>
               <p class="card-text">Description: {{ project.description }}</p>
-              <p class="card-text">Type: {{ project.type }}</p>
+              <p class="card-text">Type: <!-- {{ project.type.name }} --></p>
               <p class="card-text">Technologies: {{ project.technologies }}</p>
             </div>
             <!-- /.card-body -->
