@@ -48,16 +48,25 @@ export default {
           <div class="card">
             <template v-if="project.project_img.startsWith('uploads')">
               <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img"
-                alt="Title of {{ project.title }}" width="275px" />
+                alt="Title of {{ project.title }}" />
             </template>
             <template v-else>
               <img class="card-img-top" :src="project.project_img" alt="Title of {{ project.title }}" width="274px" />
             </template>
             <div class="card-body">
               <h4 class="card-title">{{ project.title }}</h4>
-              <p class="card-text">Description: {{ project.description }}</p>
-              <p class="card-text">Type: <!-- {{ project.type.name }} --></p>
-              <p class="card-text">Technologies: {{ project.technologies }}</p>
+              <p class="card-text"> <strong>Description: </strong>{{ project.description }}</p>
+              <div v-if="project.type">
+                <p class="card-text">
+                  <strong>Type: </strong>{{ project.type.name }}
+                </p>
+              </div>
+              <p class="card-text"><strong>Technologies:</strong></p>
+              <ul v-for="technology in project.technologies">
+                <li class="card-text">
+                  {{ technology.name }}
+                </li>
+              </ul>
             </div>
             <!-- /.card-body -->
           </div>
