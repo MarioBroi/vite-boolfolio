@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <div class="education pt-5" id="edu">
+    <div class="education" id="edu">
         <h3>Education</h3>
         <p>
             Currently enrolled in the Boolean online course, specializing in web development

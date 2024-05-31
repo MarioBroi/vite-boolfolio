@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <div class="technical-skills pt-5" id="tech">
+    <div class="technical-skills" id="tech">
         <h3>Technical skills</h3>
         <ul class="list-unstyled">
             <li>

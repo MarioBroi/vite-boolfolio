@@ -43,7 +43,7 @@ export default {
 </script>
 
 <template>
-    <div class="projects pt-5" id="proj">
+    <div class="projects" id="proj">
         <h3 class="text-center pb-2">My projects</h3>
         <div class="row row-cols-3 g-3" v-if="!loading">
             <div class="col" v-for="project in projects.data">
