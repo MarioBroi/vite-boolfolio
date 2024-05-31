@@ -45,7 +45,7 @@ export default {
 <template>
     <div class="projects" id="proj">
         <h3 class="text-center pb-2">My projects</h3>
-        <div class="row row-cols-3 g-3" v-if="!loading">
+        <div class="row row-cols-2 g-3 justify-content-center" v-if="!loading">
             <div class="col" v-for="project in projects.data">
                 <div class="card">
                     <div class="card-top">
@@ -54,8 +54,7 @@ export default {
                                 alt="Title of {{ project.title }}" />
                         </template>
                         <template v-else>
-                            <img class="card-img-top" :src="project.project_img" alt="Title of {{ project.title }}"
-                                width="274px" />
+                            <img class="card-img-top" :src="project.project_img" alt="Title of {{ project.title }}" />
                         </template>
                     </div>
                     <!-- /.card-top -->
@@ -63,21 +62,19 @@ export default {
                         <h4 class="card-title">{{ project.title }}</h4>
                         <p class="card-text"><strong>Description: </strong>{{ project.description }}
                         </p>
-                        <div v-if="project.type">
-                            <p class="card-text"><strong>Type: </strong>{{ project.type.name }}
-                            </p>
-                        </div>
-                        <p class="card-text"><strong>Technologies:</strong></p>
-                        <ul class="list-unstyled" v-for="technology in project.technologies">
-                            <li class="card-text">
-                                {{ technology.name }}
-                            </li>
-                        </ul>
-                        <p class="card-text"><strong>Link: </strong>
-                            <a :href="project.project_link">{{ project.project_link }}</a>
+                        <p class="card-text" v-if="project.type">
+                        <p class="card-text"><strong>Type: </strong>{{ project.type.name }}
                         </p>
-                        <p class="card-text"><strong>GitHub: </strong>
-                            <a :href="project.project_github">{{ project.project_github }}</a>
+                        </p>
+                        <div><strong>Technologies:</strong></div>
+                        <div v-for="technology in project.technologies">
+                            {{ technology.name }}
+                        </div>
+                        <p class="card-text pt-3">
+                            <strong>Link: </strong>
+                            <a :href="project.project_link"><i class="fa-solid fa-link text-primary"></i></a>
+                            <strong> | GitHub: </strong>
+                            <a :href="project.project_github"><i class="fa-brands fa-github text-primary"></i></a>
                         </p>
                     </div>
                     <!-- /.card-body -->
@@ -85,7 +82,7 @@ export default {
                 <!-- /.card -->
             </div>
             <!-- /.col -->
-            <nav aria-label="Page navigation">
+            <nav aria-label="Page navigation" class="d-flex justify-content-center">
                 <ul class="pagination">
                     <li class="page-item" v-show="projects.prev_page_url" @click="prevPage(projects.prev_page_url)">
                         <button class="page-link" aria-label="Previous">
