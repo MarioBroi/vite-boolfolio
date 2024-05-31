@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import { RouterView } from 'vue-router';
 
 export default {
   name: 'App',
@@ -45,6 +46,7 @@ export default {
 
 <template>
   <main>
+    <RouterView />
     <div class="frame">
       <div class="row">
         <div class="col vh-100">
