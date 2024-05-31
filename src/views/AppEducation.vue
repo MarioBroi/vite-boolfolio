@@ -5,9 +5,13 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h1>AppEducation</h1>
+    <div class="education pt-5" id="edu">
+        <h3>Education</h3>
+        <p>
+            Currently enrolled in the Boolean online course, specializing in web development
+        </p>
     </div>
+    <!-- /.education -->
 </template>
 
 <style></style>

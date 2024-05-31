@@ -6,7 +6,7 @@ export default {
 
 <template>
     <div>
-        <h1>AppContacts</h1>
+        <h1>My contacts</h1>
     </div>
 </template>
 
