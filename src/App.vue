@@ -24,51 +24,32 @@ export default {
                 experiences. <br> I thrive on learning new technologies and applying them to solve
                 real-world problems.
               </p>
-              <!--               <ul class="list-unstyled text-light">
-                <li>
-                  <a href="#about" class="text-light text-decoration-none fs-4">
-                    About
-                  </a>
-                </li>
-                <li class="pt-3">
-                  <a href="#tech" class="text-light text-decoration-none fs-4">
-                    Technical skills
-                  </a>
-                </li>
-                <li class="pt-3">
-                  <a href="#proj" class="text-light text-decoration-none fs-4">
-                    Projects
-                  </a>
-                </li>
-                <li class="pt-3">
-                  <a href="#edu" class="text-light text-decoration-none fs-4">
-                    Education
-                  </a>
-                </li>
-              </ul> -->
+              <router-link :to="{ name: 'about' }" class="text-light text-decoration-none fs-4">About</router-link><br>
+              <router-link :to="{ name: 'skill' }" class="text-light text-decoration-none fs-4">
+                Skills</router-link><br>
+              <RouterLink :to="{ name: 'projects' }" class="text-light text-decoration-none fs-4">Projects</RouterLink>
+              <br>
+              <RouterLink :to="{ name: 'education' }" class="text-light text-decoration-none fs-4">Education
+              </RouterLink><br>
+              <RouterLink :to="{ name: 'contacts' }" class="text-light text-decoration-none fs-4">Contacts</RouterLink>
             </div>
             <div>
               <span>
-                <a href="" class="text-light text-decoration-none">
+                <a href="https://github.com/MarioBroi" class="text-light text-decoration-none">
                   <i class="fa-brands fa-github"></i>
                 </a>
               </span>
               <span class="px-3">
-                <a href="" class="text-light text-decoration-none">
+                <a href="https://www.linkedin.com/in/mario-broi/" class="text-light text-decoration-none">
                   <i class="fa-brands fa-linkedin"></i>
                 </a>
               </span>
               <span>
-                <a href="" class="text-light text-decoration-none">
+                <a href="https://x.com/MarioBroi" class="text-light text-decoration-none">
                   <i class="fa-brands fa-x-twitter"></i>
                 </a>
               </span>
             </div>
-            <router-link :to="{ name: 'about' }"> About </router-link>
-            <router-link :to="{ name: 'skill' }"> Skills </router-link>
-            <RouterLink :to="{ name: 'projects' }">Projects</RouterLink>
-            <RouterLink :to="{ name: 'education' }">Education</RouterLink>
-            <RouterLink :to="{ name: 'contacts' }">Contacts</RouterLink>
           </section>
           <!-- /.site-left -->
         </div>
