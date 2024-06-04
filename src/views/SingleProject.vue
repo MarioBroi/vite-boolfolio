@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import { routerKey } from 'vue-router';
 export default {
     name: 'SingleProject',
     data() {
@@ -22,7 +23,7 @@ export default {
                         console.log(this.project);
                         this.loading = false
                     } else {
-
+                        this.$router.push({ name: 'not-found' })
                     }
                 })
                 .catch(err => {
@@ -48,9 +49,37 @@ export default {
         {{ console.log(this.project) }}
         <div class="container">
             <div class="card">
+                <div class="card-top">
+                    <!--                     <template v-if="project.project_img.startsWith('uploads')">
+                        <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img"
+                            alt="Title of {{ project.title }}" />
+                    </template>
+<div v-else-if="project.project_img === null">
+    <P> NO IMAGE TO DISPLAY</P>
+</div>
+<template v-else>
+                        <img class="card-img-top" :src="project.project_img" alt="Title of {{ project.title }}" />
+                    </template> -->
+                </div>
+                <!-- /.card-top -->
                 <div class="card-body">
-                    <h5 class="card-title">{{ project.name }}</h5>
-                    <p class="card-text">{{ project.description }}</p>
+                    <h4 class="card-title">{{ project.title }}</h4>
+                    <p class="card-text"><strong>Description: </strong>{{ project.description }}
+                    </p>
+                    <p class="card-text" v-if="project.type">
+                    <p class="card-text"><strong>Type: </strong>{{ project.type.name }}
+                    </p>
+                    </p>
+                    <div><strong>Technologies:</strong></div>
+                    <div v-for="technology in project.technologies">
+                        {{ technology.name }}
+                    </div>
+                    <p class="card-text pt-3">
+                        <strong>Link: </strong>
+                        <a :href="project.project_link"><i class="fa-solid fa-link text-primary"></i></a>
+                        <strong> | GitHub: </strong>
+                        <a :href="project.project_github"><i class="fa-brands fa-github text-primary"></i></a>
+                    </p>
                 </div>
                 <!-- /.card-body -->
             </div>
