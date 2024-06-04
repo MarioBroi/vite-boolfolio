@@ -91,20 +91,20 @@ export default {
                     </RouterLink>
                 </div>
                 <!-- /.col -->
-                <nav aria-label="Page navigation" class="d-flex justify-content-center">
-                    <ul class="pagination">
-                        <li class="page-item" v-show="projects.prev_page_url" @click="prevPage(projects.prev_page_url)">
+                <nav aria-label="Page navigation" class="text-center">
+                    <ul class="my_pagination">
+                        <li v-show="projects.prev_page_url" @click="prevPage(projects.prev_page_url)">
                             <button class="page-link" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </button>
                         </li>
 
-                        <li v-for="page in   projects.last_page  " class="page-item"
-                            :class="{ 'active': page == projects.current_page }" @click="goTo(page)">
+                        <li v-for="page in   projects.last_page  " :class="{ 'active': page == projects.current_page }"
+                            @click="goTo(page)">
                             <button class="page-link">{{ page }}</button>
                         </li>
 
-                        <li class="page-item" v-show="projects.next_page_url" @click="nextPage(projects.next_page_url)">
+                        <li v-show="projects.next_page_url" @click="nextPage(projects.next_page_url)">
                             <button class="page-link" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </button>
