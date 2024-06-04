@@ -51,15 +51,15 @@ export default {
                 <div class="col" v-for="project in projects.data">
                     <RouterLink :to="{ name: 'single-project', params: { id: project.id } }"
                         class="text-decoration-none">
-                        <div class="card">
+                        <div class="card card_background">
                             <div class="card-top">
                                 <template v-if="project.project_img.startsWith('uploads')">
-                                    <img class="card-img-top p-1"
+                                    <img class="card-img-top card_image_small p-1"
                                         :src="base_api_url + '/storage/' + project.project_img"
                                         alt="Title of {{ project.title }}" />
                                 </template>
                                 <template v-else>
-                                    <img class="card-img-top p-1" :src="project.project_img"
+                                    <img class="card-img-top card_image_small p-1" :src="project.project_img"
                                         alt="Title of {{ project.title }}" />
                                 </template>
                             </div>
@@ -77,9 +77,10 @@ export default {
                                     {{ technology.name }}
                                 </div>
                                 <p class="card-text pt-3">
-                                    <strong>Link: </strong>
+                                    <span>Link: </span>
                                     <a :href="project.project_link"><i class="fa-solid fa-link text-primary"></i></a>
-                                    <strong> | GitHub: </strong>
+                                    <br>
+                                    <span>GitHub: </span>
                                     <a :href="project.project_github"><i
                                             class="fa-brands fa-github text-primary"></i></a>
                                 </p>
@@ -121,58 +122,10 @@ export default {
                 <div class="rhombus"></div>
             </div>
         </div>
+        <!-- /spinners -->
     </div>
     <!-- /.projects -->
 
 </template>
 
-<style>
-.looping-rhombuses-spinner,
-.looping-rhombuses-spinner * {
-    box-sizing: border-box;
-}
-
-.looping-rhombuses-spinner {
-    width: calc(15px * 4);
-    height: 15px;
-    position: relative;
-}
-
-.looping-rhombuses-spinner .rhombus {
-    height: 15px;
-    width: 15px;
-    background-color: #ff1d5e;
-    left: calc(15px * 4);
-    position: absolute;
-    margin: 0 auto;
-    border-radius: 2px;
-    transform: translateY(0) rotate(45deg) scale(0);
-    animation: looping-rhombuses-spinner-animation 2500ms linear infinite;
-}
-
-.looping-rhombuses-spinner .rhombus:nth-child(1) {
-    animation-delay: calc(2500ms * 1 / -1.5);
-}
-
-.looping-rhombuses-spinner .rhombus:nth-child(2) {
-    animation-delay: calc(2500ms * 2 / -1.5);
-}
-
-.looping-rhombuses-spinner .rhombus:nth-child(3) {
-    animation-delay: calc(2500ms * 3 / -1.5);
-}
-
-@keyframes looping-rhombuses-spinner-animation {
-    0% {
-        transform: translateX(0) rotate(45deg) scale(0);
-    }
-
-    50% {
-        transform: translateX(-233%) rotate(45deg) scale(1);
-    }
-
-    100% {
-        transform: translateX(-466%) rotate(45deg) scale(0);
-    }
-}
-</style>
+<style></style>

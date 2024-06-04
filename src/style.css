@@ -6,6 +6,9 @@
 
 :root {
   --portfolio-bg: rgba(15, 23, 42, 1);
+  --portfolio-bg-secondary: rgba(32, 49, 87, 0.473);
+  --portfolio-text-light: rgba(255, 255, 255, 1);
+  --portfolio-spinner: rgb(62, 34, 114);
   --bg-opacity: 1;
 }
 
@@ -35,3 +38,93 @@ body {
   position: fixed;
   max-width: 500px;
 }
+
+.card_background {
+  background-color: var(--portfolio-bg-secondary);
+  color: var(--portfolio-text-light);
+}
+
+.card_image_small {
+  max-height: 250px;
+
+}
+
+.card_image_big {
+  width: 100%;
+  max-height: 400px;
+}
+
+/* #endregion Layout */
+
+/* #region Spinner */
+.looping-rhombuses-spinner,
+.looping-rhombuses-spinner * {
+  box-sizing: border-box;
+}
+
+.looping-rhombuses-spinner {
+  width: calc(15px * 4);
+  height: 15px;
+  position: relative;
+}
+
+.looping-rhombuses-spinner .rhombus {
+  height: 15px;
+  width: 15px;
+  background-color: var(--portfolio-spinner);
+  left: calc(15px * 4);
+  position: absolute;
+  margin: 0 auto;
+  border-radius: 2px;
+  transform: translateY(0) rotate(45deg) scale(0);
+  animation: looping-rhombuses-spinner-animation 2500ms linear infinite;
+}
+
+.looping-rhombuses-spinner .rhombus:nth-child(1) {
+  animation-delay: calc(2500ms * 1 / -1.5);
+}
+
+.looping-rhombuses-spinner .rhombus:nth-child(2) {
+  animation-delay: calc(2500ms * 2 / -1.5);
+}
+
+.looping-rhombuses-spinner .rhombus:nth-child(3) {
+  animation-delay: calc(2500ms * 3 / -1.5);
+}
+
+@keyframes looping-rhombuses-spinner-animation {
+  0% {
+    transform: translateX(0) rotate(45deg) scale(0);
+  }
+
+  50% {
+    transform: translateX(-233%) rotate(45deg) scale(1);
+  }
+
+  100% {
+    transform: translateX(-466%) rotate(45deg) scale(0);
+  }
+}
+
+/* #endregion Spinner */
+
+/* #region FadeIn */
+.fadeIn-enter-active {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* #endregion FadeIn */

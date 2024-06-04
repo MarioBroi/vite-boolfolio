@@ -39,32 +39,46 @@ export default {
 </script>
 
 <template>
-    <div class="card">
-        <div class="card-top">
-            <img class="card-img-top p-1" :src="base_api_url + '/storage/' + project.project_img"
-                alt="Title of {{ project.title }}" />
-        </div>
-        <!-- /.card-top -->
-        <div class="card-body">
-            <h4 class="card-title">{{ project.title }}</h4>
-            <p class="card-text"><strong>Description: </strong>{{ project.description }}
-            </p>
-            <p class="card-text" v-if="project.type">
-            <p class="card-text"><strong>Type: </strong>{{ project.type.name }}
-            </p>
-            </p>
-            <div><strong>Technologies:</strong></div>
-            <div v-for="technology in project.technologies">
-                {{ technology.name }}
+    <div v-if="!loading">
+        <div class="card card_background">
+            <div class="card-top">
+                <img class=" card_image_big  p-2" :src="base_api_url + '/storage/' + project.project_img"
+                    alt="Title of {{ project.title }}" />
             </div>
-            <p class="card-text pt-3">
-                <strong>Link: </strong>
-                <a :href="project.project_link"><i class="fa-solid fa-link text-primary"></i></a>
-                <strong> | GitHub: </strong>
-                <a :href="project.project_github"><i class="fa-brands fa-github text-primary"></i></a>
-            </p>
+            <!-- /.card-top -->
+            <div class="card-body">
+                <h4 class="card-title">{{ project.title }}</h4>
+                <p class="card-text">Description: {{ project.description }}
+                </p>
+                <p class="card-text" v-if="project.type">
+                <p class="card-text">Type: {{ project.type.name }}
+                </p>
+                </p>
+                <div>
+                    Technologies:
+                    <span v-for="technology in project.technologies">
+                        {{ technology.name + ' ' }}
+                    </span>
+                </div>
+                <p class="card-text pt-3">
+                    <span>Link: </span>
+                    <a :href="project.project_link"><i class="fa-solid fa-link text-primary"></i></a>
+                    <br>
+                    <span>GitHub: </span>
+                    <a :href="project.project_github"><i class="fa-brands fa-github text-primary"></i></a>
+                </p>
+            </div>
+            <!-- /.card-body -->
         </div>
-        <!-- /.card-body -->
+        <!-- /.card -->
     </div>
-    <!-- /.card -->
+    <!-- /loading -->
+    <div class="row justify-content-center pt-5" v-else>
+        <div class="looping-rhombuses-spinner">
+            <div class="rhombus"></div>
+            <div class="rhombus"></div>
+            <div class="rhombus"></div>
+        </div>
+    </div>
+    <!-- /spinners -->
 </template>
