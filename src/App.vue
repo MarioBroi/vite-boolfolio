@@ -11,9 +11,7 @@ export default {
 </script>
 
 <template>
-  <header>
 
-  </header>
   <main>
     <div class="frame">
       <div class="row">
@@ -23,7 +21,9 @@ export default {
         <!-- /.col -->
         <div class="col">
           <section class="site-right text-light">
-            <RouterView />
+            <transition name="fadeIn">
+              <RouterView />
+            </transition>
           </section>
           <!-- /.site-right -->
         </div>
@@ -33,4 +33,25 @@ export default {
     </div>
     <!-- /.frame -->
   </main>
+
 </template>
+
+<style>
+.fadeIn-enter-active {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+</style>
