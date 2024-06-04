@@ -48,15 +48,15 @@ export default {
         <h3 class="text-center pb-2">My projects</h3>
         <div class="row row-cols-2 g-3 justify-content-center">
             <div class="col" v-for="project in projects.data">
-                <RouterLink :to="{ name: 'single-project', params: { id: project.id } }">
-                    <div class=" card">
+                <RouterLink :to="{ name: 'single-project', params: { id: project.id } }" class="text-decoration-none">
+                    <div class="card">
                         <div class="card-top">
                             <template v-if="project.project_img.startsWith('uploads')">
-                                <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img"
+                                <img class="card-img-top p-1" :src="base_api_url + '/storage/' + project.project_img"
                                     alt="Title of {{ project.title }}" />
                             </template>
                             <template v-else>
-                                <img class="card-img-top" :src="project.project_img"
+                                <img class="card-img-top p-1" :src="project.project_img"
                                     alt="Title of {{ project.title }}" />
                             </template>
                         </div>
@@ -107,13 +107,6 @@ export default {
                 </ul>
             </nav>
 
-        </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col">
-                Loading ...
-            </div>
-            <!-- /.col -->
         </div>
         <!-- /.row -->
     </div>
