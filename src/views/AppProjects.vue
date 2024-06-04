@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+
 export default {
     name: 'AppProjects',
     data() {
@@ -26,7 +27,7 @@ export default {
             axios
                 .get(url)
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     this.projects = response.data.projects
                     this.loading = false
                 })
@@ -45,41 +46,44 @@ export default {
 <template>
     <div class="projects" id="proj">
         <h3 class="text-center pb-2">My projects</h3>
-        <div class="row row-cols-2 g-3 justify-content-center" v-if="!loading">
+        <div class="row row-cols-2 g-3 justify-content-center">
             <div class="col" v-for="project in projects.data">
-                <div class="card">
-                    <div class="card-top">
-                        <template v-if="project.project_img.startsWith('uploads')">
-                            <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img"
-                                alt="Title of {{ project.title }}" />
-                        </template>
-                        <template v-else>
-                            <img class="card-img-top" :src="project.project_img" alt="Title of {{ project.title }}" />
-                        </template>
-                    </div>
-                    <!-- /.card-top -->
-                    <div class="card-body">
-                        <h4 class="card-title">{{ project.title }}</h4>
-                        <p class="card-text"><strong>Description: </strong>{{ project.description }}
-                        </p>
-                        <p class="card-text" v-if="project.type">
-                        <p class="card-text"><strong>Type: </strong>{{ project.type.name }}
-                        </p>
-                        </p>
-                        <div><strong>Technologies:</strong></div>
-                        <div v-for="technology in project.technologies">
-                            {{ technology.name }}
+                <RouterLink :to="{ name: 'single-project', params: { id: project.id } }">
+                    <div class=" card">
+                        <div class="card-top">
+                            <template v-if="project.project_img.startsWith('uploads')">
+                                <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img"
+                                    alt="Title of {{ project.title }}" />
+                            </template>
+                            <template v-else>
+                                <img class="card-img-top" :src="project.project_img"
+                                    alt="Title of {{ project.title }}" />
+                            </template>
                         </div>
-                        <p class="card-text pt-3">
-                            <strong>Link: </strong>
-                            <a :href="project.project_link"><i class="fa-solid fa-link text-primary"></i></a>
-                            <strong> | GitHub: </strong>
-                            <a :href="project.project_github"><i class="fa-brands fa-github text-primary"></i></a>
-                        </p>
+                        <!-- /.card-top -->
+                        <div class="card-body">
+                            <h4 class="card-title">{{ project.title }}</h4>
+                            <p class="card-text"><strong>Description: </strong>{{ project.description }}
+                            </p>
+                            <p class="card-text" v-if="project.type">
+                            <p class="card-text"><strong>Type: </strong>{{ project.type.name }}
+                            </p>
+                            </p>
+                            <div><strong>Technologies:</strong></div>
+                            <div v-for="technology in project.technologies">
+                                {{ technology.name }}
+                            </div>
+                            <p class="card-text pt-3">
+                                <strong>Link: </strong>
+                                <a :href="project.project_link"><i class="fa-solid fa-link text-primary"></i></a>
+                                <strong> | GitHub: </strong>
+                                <a :href="project.project_github"><i class="fa-brands fa-github text-primary"></i></a>
+                            </p>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
+                    <!-- /.card -->
+                </RouterLink>
             </div>
             <!-- /.col -->
             <nav aria-label="Page navigation" class="d-flex justify-content-center">
@@ -105,7 +109,7 @@ export default {
 
         </div>
         <!-- /.row -->
-        <div class="row" v-else>
+        <div class="row">
             <div class="col">
                 Loading ...
             </div>
