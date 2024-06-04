@@ -39,9 +39,9 @@ export default {
 </script>
 
 <template>
-    <div class=" card">
+    <div class="card">
         <div class="card-top">
-            <img class="card-img-top" :src="base_api_url + '/storage/' + project.project_img"
+            <img class="card-img-top p-1" :src="base_api_url + '/storage/' + project.project_img"
                 alt="Title of {{ project.title }}" />
         </div>
         <!-- /.card-top -->
