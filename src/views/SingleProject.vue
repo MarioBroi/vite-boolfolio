@@ -61,11 +61,16 @@ export default {
                     </span>
                 </div>
                 <p class="card-text pt-3">
-                    <span>Link: </span>
-                    <a :href="project.project_link"><i class="fa-solid fa-link text-primary"></i></a>
-                    <br>
+                <div v-if="project.project_github != null">
                     <span>GitHub: </span>
-                    <a :href="project.project_github"><i class="fa-brands fa-github text-primary"></i></a>
+                    <a :href="project.project_github" class="card_links_icons"><i
+                            class="fa-brands fa-github fa-xl px-2"></i></a>
+                </div>
+                <div v-if="project.project_link != null">
+                    <span>Link: </span>
+                    <a :href="project.project_link" class="card_links_icons"><i
+                            class="fa-solid fa-link fa-xl px-2"></i></a>
+                </div>
                 </p>
             </div>
             <!-- /.card-body -->
